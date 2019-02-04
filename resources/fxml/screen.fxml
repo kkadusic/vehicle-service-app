@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.projekat.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="448.0" minHeight="10.0" prefHeight="441.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu fx:id="menuOptions" mnemonicParsing="false" text="Options">
+                    <items>
+                        <RadioMenuItem fx:id="menuDb" mnemonicParsing="false" text="SQLite" />
+                        <RadioMenuItem fx:id="menuXml" mnemonicParsing="false" text="XML" />
+                    </items></Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
+            <tabs>
+                <Tab id="vlasniciTab" fx:id="ownersTab" text="Owners">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                    <items>
+                                        <Label text="Search" />
+                                        <TextField />
+                                        <Button fx:id="tbAddOwner" mnemonicParsing="false" />
+                                        <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                    </items>
+                                </ToolBar>
+                                <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
+                                    <columns>
+                                        <TableColumn fx:id="colOwnerId" prefWidth="123.0" text="ID" />
+                                        <TableColumn fx:id="colFirstLastName" prefWidth="339.0" text="First name and last name" />
+                                        <TableColumn fx:id="colNationIdNumber" prefWidth="235.0" text="National ID number" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab id="vozilaTab" fx:id="vehiclesTab" text="Vehicles">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                    <items>
+                                        <Label text="Search" />
+                                        <TextField />
+                                        <Button fx:id="tbAddVehicle" mnemonicParsing="false" />
+                                        <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                    </items>
+                                </ToolBar>
+                                <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">
+                                    <columns>
+                                        <TableColumn fx:id="colVehicleId" prefWidth="66.0" text="ID" />
+                                        <TableColumn fx:id="colBrand" prefWidth="160.0" text="Brand" />
+                                        <TableColumn fx:id="colModel" prefWidth="169.0" text="Model" />
+                                        <TableColumn fx:id="colVehicleIdNumber" prefWidth="157.0" text="Vehicle ID number" />
+                                        <TableColumn fx:id="colNumberPlate" prefWidth="145.0" text="Number plate" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</GridPane>
