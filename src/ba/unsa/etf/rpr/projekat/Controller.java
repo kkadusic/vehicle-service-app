@@ -23,7 +23,7 @@ public class Controller {
     public TableView<Owner> tableOwners;
     public TableColumn colOwnerId;
     public TableColumn<Owner, String> colFirstLastName;
-    public TableColumn colNationIdNumber;
+    public TableColumn colNationalIdNumber;
 
     public TableView<Vehicle> tableVehicles;
     public TableColumn colVehicleId;
@@ -53,11 +53,13 @@ public class Controller {
 
     public void initializeCommon() {
         tableOwners.setItems(dao.getOwners());
+
         colOwnerId.setCellValueFactory(new PropertyValueFactory("id"));
         colFirstLastName.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFirstName().concat(" ").concat(data.getValue().getLastName())));
-        colNationIdNumber.setCellValueFactory(new PropertyValueFactory("nationalIdNumber"));
+        colNationalIdNumber.setCellValueFactory(new PropertyValueFactory("nationalIdNumber"));
 
         tableVehicles.setItems(dao.getVehicles());
+
         colVehicleId.setCellValueFactory(new PropertyValueFactory("id"));
         colBrand.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getBrand().getName()));
         colModel.setCellValueFactory(new PropertyValueFactory("model"));
@@ -66,9 +68,9 @@ public class Controller {
     }
 
     public void addOwnerAction(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
         try {
-            Stage stage = new Stage();
-            Parent root = null;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/owner.fxml"));
             OwnerController ownerController = new OwnerController(dao, null);
             loader.setController(ownerController);
@@ -129,6 +131,74 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void addVehicleAction(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
+            VehicleController vehicleController = new VehicleController(dao, null);
+            loader.setController(vehicleController);
+            root = loader.load();
+            stage.setTitle("Vehicle");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding( event -> tableVehicles.setItems(dao.getVehicles()) );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeVoziloAction(ActionEvent actionEvent) {
+        Vehicle vehicle = tableVehicles.getSelectionModel().getSelectedItem();
+        if (vehicle == null) return;
+
+        String brandModel = vehicle.getBrand().getName().concat(" ").concat(vehicle.getModel());
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation of removing vehicle");
+        alert.setHeaderText("Removing vehicle "+brandModel);
+        alert.setContentText("Are you sure that you want to remove vehicle " +brandModel+"?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            dao.deleteVehicle(vehicle);
+            tableVehicles.setItems(dao.getVehicles());
+        }
+    }
+
+    public void editVoziloAction(ActionEvent actionEvent) {
+        Vehicle vehicle = tableVehicles.getSelectionModel().getSelectedItem();
+        if ( vehicle== null) return;
+
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
+            VehicleController vehicleController = new VehicleController(dao, vehicle);
+            loader.setController(vehicleController);
+            root = loader.load();
+            stage.setTitle("Vehicle");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding( event -> tableVehicles.setItems(dao.getVehicles()) );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void switchDb(ActionEvent actionEvent) {
+        initializeDatabase();
+    }
+
+    public void switchXml(ActionEvent actionEvent) {
+        initializeXml();
     }
 
 }
