@@ -97,7 +97,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
                 ResultSet rs2 = getBrandQuery.executeQuery();
                 Brand brand = null;
                 while (rs2.next()) {
-                    brand = new Brand(rs.getInt(1), rs.getString(2));
+                    brand = new Brand(rs2.getInt(1), rs2.getString(2));
                 }
 
                 getOwnerQuery.setInt(1, rs.getInt(6));
@@ -111,7 +111,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return vehicles;
     }
 
     @Override
@@ -264,7 +264,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
             addVehicleQuery.setInt(1, vehicle.getId());
             addVehicleQuery.setInt(2, vehicle.getBrand().getId());
             addVehicleQuery.setString(3, vehicle.getModel());
-            addVehicleQuery.setString(4, vehicle.getVechileIdNumber());
+            addVehicleQuery.setString(4, vehicle.getVehicleIdNumber());
             addVehicleQuery.setString(5, vehicle.getNumberPlate());
             addVehicleQuery.setInt(6, vehicle.getOwner().getId());
             addVehicleQuery.executeUpdate();
@@ -287,7 +287,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
             changeVehicleQuery.setInt(6, vehicle.getId());
             changeVehicleQuery.setInt(1, vehicle.getBrand().getId());
             changeVehicleQuery.setString(2, vehicle.getModel());
-            changeVehicleQuery.setString(3, vehicle.getVechileIdNumber());
+            changeVehicleQuery.setString(3, vehicle.getVehicleIdNumber());
             changeVehicleQuery.setString(4, vehicle.getNumberPlate());
             changeVehicleQuery.setInt(5, vehicle.getOwner().getId());
             changeVehicleQuery.executeUpdate();

@@ -9,13 +9,13 @@ public class Owner {
     private Location placeOfBirth;
     private String address;
     private Location placeOfResidence;
-    private String nationalIdentificationNumber;
+    private String nationalIdNumber;
     private long dateOfBirthDays;
 
     public Owner() {
     }
 
-    public Owner(int id, String firstName, String lastName, String parentName, LocalDate dateOfBirth, Location placeOfBirth, String address, Location placeOfResidence, String nationalIdentificationNumber, long dateOfBirthDays) {
+    public Owner(int id, String firstName, String lastName, String parentName, LocalDate dateOfBirth, Location placeOfBirth, String address, Location placeOfResidence, String nationalIdNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,8 +24,7 @@ public class Owner {
         this.placeOfBirth = placeOfBirth;
         this.address = address;
         this.placeOfResidence = placeOfResidence;
-        this.nationalIdentificationNumber = nationalIdentificationNumber;
-        this.dateOfBirthDays = dateOfBirthDays;
+        this.nationalIdNumber = nationalIdNumber;
     }
 
     public int getId() {
@@ -93,12 +92,12 @@ public class Owner {
         this.placeOfResidence = placeOfResidence;
     }
 
-    public String getNationalIdentificationNumber() {
-        return nationalIdentificationNumber;
+    public String getNationalIdNumber() {
+        return nationalIdNumber;
     }
 
-    public void setNationalIdentificationNumber(String nationalIdentificationNumber) {
-        this.nationalIdentificationNumber = nationalIdentificationNumber;
+    public void setNationalIdNumber(String nationalIdNumber) {
+        this.nationalIdNumber = nationalIdNumber;
     }
 
     public long getDateOfBirthDays() {

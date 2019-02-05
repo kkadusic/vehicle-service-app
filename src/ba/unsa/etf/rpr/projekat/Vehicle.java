@@ -3,17 +3,17 @@ package ba.unsa.etf.rpr.projekat;
 public class Vehicle {
     private int id;
     private Brand brand;
-    private String model, vehicleIdentificationNumber, numberPlate;
+    private String model, vehicleIdNumber, numberPlate;
     private Owner owner;
 
     public Vehicle() {
     }
 
-    public Vehicle(int id, Brand brand, String model, String vehicleIdentificationNumber, String numberPlate, Owner owner) {
+    public Vehicle(int id, Brand brand, String model, String vehicleIdNumber, String numberPlate, Owner owner) {
         this.id = id;
         this.brand = brand;
         this.model = model;
-        this.vehicleIdentificationNumber = vehicleIdentificationNumber;
+        this.vehicleIdNumber = vehicleIdNumber;
         this.numberPlate = numberPlate;
         this.owner = owner;
     }
@@ -42,12 +42,12 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getVechileIdentificationNumber() {
-        return vehicleIdentificationNumber;
+    public String getVehicleIdNumber() {
+        return vehicleIdNumber;
     }
 
-    public void setVechileIdentificationNumber(String vehicleIdentificationNumber) {
-        this.vehicleIdentificationNumber = vehicleIdentificationNumber;
+    public void setVehicleIdNumber(String vehicleIdNumber) {
+        this.vehicleIdNumber = vehicleIdNumber;
     }
 
     public String getNumberPlate() {
