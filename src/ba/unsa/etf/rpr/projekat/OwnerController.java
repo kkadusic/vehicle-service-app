@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class OwnerController {
     private VehiclesDAO dao;
@@ -47,7 +48,31 @@ public class OwnerController {
         }
     }
 
-    public void handleOk (ActionEvent actionEvent){
+    public void handleOk(ActionEvent actionEvent) {
 
+    }
+
+    public void handleCancel(ActionEvent actionEvent) {
+        Stage stage = (Stage) placeOfBirthCombo.getScene().getWindow();
+        stage.close();
+    }
+
+    private void addChangeOwner(Location placeOfBirth, Location placeOfResidence) {
+        if (owner == null) {
+            owner = new Owner(0, firstNameField.getText(), lastNameField.getText(), parentNameField.getText(),
+                    dateOfBirthPicker.getValue(), placeOfBirth, addressField.getText(), placeOfResidence, nationalIdNumberField.getText());
+            dao.addOwner(owner);
+
+        } else {
+            owner.setFirstName(firstNameField.getText());
+            owner.setLastName(lastNameField.getText());
+            owner.setParentName(parentNameField.getText());
+            owner.setDateOfBirth(dateOfBirthPicker.getValue());
+            owner.setPlaceOfBirth(placeOfBirth);
+            owner.setAddress(addressField.getText());
+            owner.setPlaceOfResidence(placeOfResidence);
+            owner.setNationalIdNumber(nationalIdNumberField.getText());
+            dao.changeOwner(owner);
+        }
     }
 }
