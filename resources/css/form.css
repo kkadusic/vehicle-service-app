@@ -1,0 +1,9 @@
+.fieldRight {
+    -fx-control-inner-background: greenyellow;
+}
+.fieldWrong {
+    -fx-control-inner-background: lightpink;
+}
+.fieldValidating {
+    -fx-control-inner-background: yellow;
+}
