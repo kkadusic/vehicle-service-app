@@ -55,16 +55,16 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddOwner" mnemonicParsing="false" />
-                                        <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
-                                        <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbAddOwner" onAction="#addOwnerAction" mnemonicParsing="false" />
+                                        <Button fx:id="tbRemoveOwner" onAction="#removeOwnerAction" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbEditOwner" onAction="#editOwnerAction" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
                                     <columns>
                                         <TableColumn fx:id="colOwnerId" prefWidth="123.0" text="ID" />
                                         <TableColumn fx:id="colFirstLastName" prefWidth="339.0" text="First name and last name" />
-                                        <TableColumn fx:id="colNationIdNumber" prefWidth="235.0" text="National ID number" />
+                                        <TableColumn fx:id="colNationalIdNumber" prefWidth="235.0" text="National ID number" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -79,9 +79,9 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddVehicle" mnemonicParsing="false" />
-                                        <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
-                                        <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbAddVehicle" onAction="#addVehicleAction" mnemonicParsing="false" />
+                                        <Button fx:id="tbRemoveVehicle" onAction="#removeVehicleAction" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbEditVehicle" onAction="#editVehicleAction" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">

@@ -10,7 +10,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import java.net.URL?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/form.css" />
+    </stylesheets>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,12 +49,12 @@
       <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
       <TextField fx:id="nationalIdNumberField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
       <ComboBox fx:id="placeOfBirthCombo" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <ComboBox fx:id="placeOfResidenceCombo" editable="true" layoutX="310.0" layoutY="164.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <ComboBox fx:id="placeOfResidenceCombo" onAction="#locationChange" editable="true" layoutX="310.0" layoutY="164.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       <DatePicker fx:id="dateOfBirthPicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="10">
         <buttons>
-          <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
-            <Button fx:id="cancelButton" layoutX="535.0" layoutY="16.0" mnemonicParsing="false" text="Cancel" />
+          <Button fx:id="okButton" onAction="#okClick" mnemonicParsing="false" text="OK" />
+            <Button fx:id="cancelButton" onAction="#cancelClick" layoutX="535.0" layoutY="16.0" mnemonicParsing="false" text="Cancel" />
         </buttons>
       </ButtonBar>
    </children>
