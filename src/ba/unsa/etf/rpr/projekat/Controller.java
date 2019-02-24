@@ -153,7 +153,7 @@ public class Controller {
         }
     }
 
-    public void removeVoziloAction(ActionEvent actionEvent) {
+    public void removeVehicleAction(ActionEvent actionEvent) {
         Vehicle vehicle = tableVehicles.getSelectionModel().getSelectedItem();
         if (vehicle == null) return;
 
@@ -171,7 +171,7 @@ public class Controller {
         }
     }
 
-    public void editVoziloAction(ActionEvent actionEvent) {
+    public void editVehicleAction(ActionEvent actionEvent) {
         Vehicle vehicle = tableVehicles.getSelectionModel().getSelectedItem();
         if ( vehicle== null) return;
 

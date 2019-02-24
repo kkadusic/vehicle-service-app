@@ -99,9 +99,9 @@ public class VehicleController {
 
     private boolean validatePlateNumber(TextField field) {
         String numberPlate = field.getText();
-        if (numberPlate.length() > 9) return false;
+        if (numberPlate.length() > 9 || numberPlate.length() < 1) return false;
         for (int i = 0; i < numberPlate.length(); i++) {
-            if (!Character.isDigit(numberPlate.charAt(i)) || !Character.isAlphabetic(numberPlate.charAt(i)))
+            if (!Character.isDigit(numberPlate.charAt(i)) && !Character.isAlphabetic(numberPlate.charAt(i)))
                 return false;
         }
         return true;

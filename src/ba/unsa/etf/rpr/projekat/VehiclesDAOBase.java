@@ -251,8 +251,8 @@ public class VehiclesDAOBase implements VehiclesDAO {
             vehicle.setBrand(addBrandIfNotExists(vehicle.getBrand()));
 
             // Check owner
-            getVehiclesQuery.setInt(1, vehicle.getOwner().getId());
-            ResultSet rs = getVehiclesQuery.executeQuery();
+            getOwnerQuery.setInt(1, vehicle.getOwner().getId());
+            ResultSet rs = getOwnerQuery.executeQuery();
             if (!rs.next())
                 throw new IllegalArgumentException("Unknown owner with ID" + vehicle.getOwner().getId());
 
