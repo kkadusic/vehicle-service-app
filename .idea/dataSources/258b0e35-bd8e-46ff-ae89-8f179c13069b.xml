@@ -195,24 +195,40 @@
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="52" parent="11" name="sqlite_autoindex_vehicle_1">
+    <column id="52" parent="11" name="model_year">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="53" parent="11" name="emission_standard">
+      <Position>8</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="54" parent="11" name="horsepower">
+      <Position>9</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="55" parent="11" name="engine">
+      <Position>10</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <index id="56" parent="11" name="sqlite_autoindex_vehicle_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="53" parent="11" name="vehicle_pk">
+    <key id="57" parent="11" name="vehicle_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex_vehicle_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="54" parent="11">
+    <foreign-key id="58" parent="11">
       <ColNames>brand</ColNames>
       <RefTableName>brand</RefTableName>
       <RefKeyName>brand_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="55" parent="11">
+    <foreign-key id="59" parent="11">
       <ColNames>owner</ColNames>
       <RefTableName>owner</RefTableName>
       <RefKeyName>owner_pk</RefKeyName>

@@ -16,6 +16,10 @@ public class VehicleController {
     public TextField modelField;
     public TextField vehicleIdNumberField;
     public TextField numberPlateField;
+    public TextField modelYearField;
+    public TextField emissionStandardField;
+    public TextField horsepowerField;
+    public TextField engineField;
 
     private ObservableList<Owner> owners;
     private ObservableList<Brand> brands;
@@ -44,6 +48,10 @@ public class VehicleController {
             numberPlateField.setText(vehicle.getNumberPlate());
             String lastFirstName = vehicle.getOwner().getFirstName().concat(" ").concat(vehicle.getOwner().getLastName());
             ownerCombo.setValue(lastFirstName);
+            modelYearField.setText(Integer.toString(vehicle.getModelYear()));
+            emissionStandardField.setText(vehicle.getEmissionStandard());
+            horsepowerField.setText(vehicle.getHorsepower());
+            engineField.setText(vehicle.getEngine());
         }
     }
 
@@ -68,9 +76,10 @@ public class VehicleController {
 
         if (!allOk) return;
 
+        int modelYear = Integer.parseInt(modelYearField.getText());
         // Adding new owner or editing existing one
         if (vehicle == null) {
-            vehicle = new Vehicle(0, brand, modelField.getText(), vehicleIdNumberField.getText(), numberPlateField.getText(), owner);
+            vehicle = new Vehicle(0, brand, modelField.getText(), vehicleIdNumberField.getText(), numberPlateField.getText(), owner, modelYear, emissionStandardField.getText(), horsepowerField.getText(), engineField.getText());
             dao.addVehicle(vehicle);
         } else {
             vehicle.setBrand(brand);
@@ -78,6 +87,10 @@ public class VehicleController {
             vehicle.setVehicleIdNumber(vehicleIdNumberField.getText());
             vehicle.setNumberPlate(numberPlateField.getText());
             vehicle.setOwner(owner);
+            vehicle.setModelYear(modelYear);
+            vehicle.setEmissionStandard(emissionStandardField.getText());
+            vehicle.setHorsepower(horsepowerField.getText());
+            vehicle.setEngine(engineField.getText());
             dao.changeVehicle(vehicle);
         }
 

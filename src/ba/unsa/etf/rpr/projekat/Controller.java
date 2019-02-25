@@ -31,6 +31,11 @@ public class Controller {
     public TableColumn colModel;
     public TableColumn colVehicleIdNumber;
     public TableColumn colNumberPlate;
+    public TableColumn colModelYear;
+    public TableColumn colEmissionStandard;
+    public TableColumn colHorsepower;
+    public TableColumn colEngine;
+
 
     public TableView<Part> tableParts;
     public TableColumn colPartId;
@@ -70,6 +75,10 @@ public class Controller {
         colModel.setCellValueFactory(new PropertyValueFactory("model"));
         colVehicleIdNumber.setCellValueFactory(new PropertyValueFactory("vehicleIdNumber"));
         colNumberPlate.setCellValueFactory(new PropertyValueFactory("numberPlate"));
+        colModelYear.setCellValueFactory(new PropertyValueFactory("modelYear"));
+        colEmissionStandard.setCellValueFactory(new PropertyValueFactory("emissionStandard"));
+        colHorsepower.setCellValueFactory(new PropertyValueFactory("horsepower"));
+        colEngine.setCellValueFactory(new PropertyValueFactory("engine"));
 
         tableParts.setItems(dao.getParts());
         colPartId.setCellValueFactory(new PropertyValueFactory("id"));
@@ -228,12 +237,10 @@ public class Controller {
         Part part = tableParts.getSelectionModel().getSelectedItem();
         if (part == null) return;
 
-        String partName = part.getName();
-
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation of removing part");
-        alert.setHeaderText("Removing part " + partName);
-        alert.setContentText("Are you sure that you want to remove part " + partName + "?");
+        alert.setTitle("Confirmation of removing parts");
+        alert.setHeaderText("Removing part: " + part.getName() + "\nQuantity: " + part.getQuantity());
+        alert.setContentText("Are you sure that you want to remove parts " + part.getName() + "?");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {

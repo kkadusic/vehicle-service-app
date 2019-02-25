@@ -30,8 +30,8 @@ public class VehiclesDAOBase implements VehiclesDAO {
             getVehiclesQuery = conn.prepareStatement("SELECT * FROM vehicle");
             getNewVehicleIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM vehicle");
             getVehiclesForOwnerQuery = conn.prepareStatement("SELECT COUNT(*) FROM vehicle WHERE owner=?");
-            addVehicleQuery = conn.prepareStatement("INSERT INTO vehicle VALUES (?,?,?,?,?,?)");
-            changeVehicleQuery = conn.prepareStatement("UPDATE vehicle SET brand=?, model=?, vehicle_id_number=?, number_plate=?, owner=? WHERE id=?");
+            addVehicleQuery = conn.prepareStatement("INSERT INTO vehicle VALUES (?,?,?,?,?,?,?,?,?,?)");
+            changeVehicleQuery = conn.prepareStatement("UPDATE vehicle SET brand=?, model=?, vehicle_id_number=?, number_plate=?, owner=?, model_year=?, emission_standard=?, horsepower=?, engine=? WHERE id=?");
             deleteVehicleQuery = conn.prepareStatement("DELETE FROM vehicle WHERE id=?");
 
             //Location
@@ -128,7 +128,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
                 Owner owner = null;
                 if (rs3.next()) owner = getOwnerFromResultSet(rs3);
 
-                Vehicle vehicle = new Vehicle(rs.getInt(1), brand, rs.getString(3), rs.getString(4), rs.getString(5), owner);
+                Vehicle vehicle = new Vehicle(rs.getInt(1), brand, rs.getString(3), rs.getString(4), rs.getString(5), owner, rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10));
                 vehicles.add(vehicle);
             }
         } catch (SQLException e) {
@@ -333,6 +333,10 @@ public class VehiclesDAOBase implements VehiclesDAO {
             addVehicleQuery.setString(4, vehicle.getVehicleIdNumber());
             addVehicleQuery.setString(5, vehicle.getNumberPlate());
             addVehicleQuery.setInt(6, vehicle.getOwner().getId());
+            addVehicleQuery.setInt(7, vehicle.getModelYear());
+            addVehicleQuery.setString(8, vehicle.getEmissionStandard());
+            addVehicleQuery.setString(9, vehicle.getHorsepower());
+            addVehicleQuery.setString(10, vehicle.getEngine());
             addVehicleQuery.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -345,17 +349,21 @@ public class VehiclesDAOBase implements VehiclesDAO {
             vehicle.setBrand(addBrandIfNotExists(vehicle.getBrand()));
 
             // Check owner
-            getVehiclesQuery.setInt(1, vehicle.getOwner().getId());
-            ResultSet rs = getVehiclesQuery.executeQuery();
+            getOwnerQuery.setInt(1, vehicle.getOwner().getId());
+            ResultSet rs = getOwnerQuery.executeQuery();
             if (!rs.next())
                 throw new IllegalArgumentException("Unknown owner with ID." + vehicle.getOwner().getId());
 
-            changeVehicleQuery.setInt(6, vehicle.getId());
+            changeVehicleQuery.setInt(10, vehicle.getId());
             changeVehicleQuery.setInt(1, vehicle.getBrand().getId());
             changeVehicleQuery.setString(2, vehicle.getModel());
             changeVehicleQuery.setString(3, vehicle.getVehicleIdNumber());
             changeVehicleQuery.setString(4, vehicle.getNumberPlate());
             changeVehicleQuery.setInt(5, vehicle.getOwner().getId());
+            changeVehicleQuery.setInt(6, vehicle.getModelYear());
+            changeVehicleQuery.setString(7, vehicle.getEmissionStandard());
+            changeVehicleQuery.setString(8, vehicle.getHorsepower());
+            changeVehicleQuery.setString(9, vehicle.getEngine());
             changeVehicleQuery.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
