@@ -17,7 +17,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import java.net.URL?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.projekat.Controller">
+    <stylesheets>
+        <URL value="@/css/style.css" />
+    </stylesheets>
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -55,9 +59,9 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" text="Add" />
-                                        <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" text="Remove" />
-                                        <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" text="Edit" />
+                                        <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" />
+                                        <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" />
+                                        <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
@@ -79,9 +83,9 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" text="Add" />
-                                        <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" text="Remove" />
-                                        <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" text="Edit" />
+                                        <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" />
+                                        <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" />
+                                        <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">
@@ -109,9 +113,9 @@
                            <items>
                               <Label text="Search" />
                               <TextField />
-                              <Button fx:id="tbAddPart" mnemonicParsing="false" onAction="#addPartAction" text="Add" />
-                              <Button fx:id="tbRemovePart" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removePartAction" text="Remove" />
-                              <Button fx:id="tbEditPart" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editPartAction" text="Edit" />
+                              <Button fx:id="tbAddPart" mnemonicParsing="false" onAction="#addPartAction" />
+                              <Button fx:id="tbRemovePart" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removePartAction" />
+                              <Button fx:id="tbEditPart" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editPartAction" />
                            </items>
                         </ToolBar>
                         <TableView fx:id="tableParts" prefHeight="374.0" prefWidth="698.0">

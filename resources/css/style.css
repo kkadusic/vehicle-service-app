@@ -1,0 +1,14 @@
+#tbAddOwner, #tbAddVehicle, #tbAddPart {
+    -fx-graphic: url("/img/plus.png");
+}
+
+#tbRemoveOwner, #tbRemoveVehicle, #tbRemovePart {
+    -fx-graphic: url("/img/minus.png");
+}
+
+#tbEditOwner, #tbEditVehicle, #tbEditPart {
+    -fx-graphic: url("/img/edit.png");
+}
+
+
+
