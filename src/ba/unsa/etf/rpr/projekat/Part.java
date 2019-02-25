@@ -7,15 +7,15 @@ public class Part {
     private String name;
     private int quantity;
 
+    public Part() {
+    }
+
     public Part(int id, String brand, String model, String name, int quantity) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.name = name;
         this.quantity = quantity;
-    }
-
-    public Part() {
     }
 
     public int getId() {

@@ -32,6 +32,13 @@ public class Controller {
     public TableColumn colVehicleIdNumber;
     public TableColumn colNumberPlate;
 
+    public TableView<Part> tableParts;
+    public TableColumn colPartId;
+    public TableColumn colPartBrand;
+    public TableColumn colPartModel;
+    public TableColumn colPartName;
+    public TableColumn colPartQuantity;
+
     private VehiclesDAO dao = null;
 
     @FXML
@@ -53,18 +60,23 @@ public class Controller {
 
     public void initializeCommon() {
         tableOwners.setItems(dao.getOwners());
-
         colOwnerId.setCellValueFactory(new PropertyValueFactory("id"));
         colFirstLastName.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFirstName().concat(" ").concat(data.getValue().getLastName())));
         colNationalIdNumber.setCellValueFactory(new PropertyValueFactory("nationalIdNumber"));
 
         tableVehicles.setItems(dao.getVehicles());
-
         colVehicleId.setCellValueFactory(new PropertyValueFactory("id"));
         colBrand.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getBrand().getName()));
         colModel.setCellValueFactory(new PropertyValueFactory("model"));
         colVehicleIdNumber.setCellValueFactory(new PropertyValueFactory("vehicleIdNumber"));
         colNumberPlate.setCellValueFactory(new PropertyValueFactory("numberPlate"));
+
+        tableParts.setItems(dao.getParts());
+        colPartId.setCellValueFactory(new PropertyValueFactory("id"));
+        colPartBrand.setCellValueFactory(new PropertyValueFactory("brand"));
+        colPartModel.setCellValueFactory(new PropertyValueFactory("model"));
+        colPartName.setCellValueFactory(new PropertyValueFactory("name"));
+        colPartQuantity.setCellValueFactory(new PropertyValueFactory("quantity"));
     }
 
     public void addOwnerAction(ActionEvent actionEvent) {
@@ -147,7 +159,7 @@ public class Controller {
             stage.setResizable(false);
             stage.show();
 
-            stage.setOnHiding( event -> tableVehicles.setItems(dao.getVehicles()) );
+            stage.setOnHiding(event -> tableVehicles.setItems(dao.getVehicles()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -161,11 +173,11 @@ public class Controller {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation of removing vehicle");
-        alert.setHeaderText("Removing vehicle "+brandModel);
-        alert.setContentText("Are you sure that you want to remove vehicle " +brandModel+"?");
+        alert.setHeaderText("Removing vehicle " + brandModel);
+        alert.setContentText("Are you sure that you want to remove vehicle " + brandModel + "?");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             dao.deleteVehicle(vehicle);
             tableVehicles.setItems(dao.getVehicles());
         }
@@ -173,7 +185,7 @@ public class Controller {
 
     public void editVehicleAction(ActionEvent actionEvent) {
         Vehicle vehicle = tableVehicles.getSelectionModel().getSelectedItem();
-        if ( vehicle== null) return;
+        if (vehicle == null) return;
 
         Stage stage = new Stage();
         Parent root = null;
@@ -187,7 +199,66 @@ public class Controller {
             stage.setResizable(false);
             stage.show();
 
-            stage.setOnHiding( event -> tableVehicles.setItems(dao.getVehicles()) );
+            stage.setOnHiding(event -> tableVehicles.setItems(dao.getVehicles()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addPartAction(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/part.fxml"));
+            PartController partController = new PartController(dao, null);
+            loader.setController(partController);
+            root = loader.load();
+            stage.setTitle("Part");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding(event -> tableParts.setItems(dao.getParts()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removePartAction(ActionEvent actionEvent) {
+        Part part = tableParts.getSelectionModel().getSelectedItem();
+        if (part == null) return;
+
+        String partName = part.getName();
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation of removing part");
+        alert.setHeaderText("Removing part " + partName);
+        alert.setContentText("Are you sure that you want to remove part " + partName + "?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            dao.deletePart(part);
+            tableParts.setItems(dao.getParts());
+        }
+    }
+
+    public void editPartAction(ActionEvent actionEvent) {
+        Part part = tableParts.getSelectionModel().getSelectedItem();
+        if (part == null) return;
+
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/part.fxml"));
+            PartController partController = new PartController(dao, part);
+            loader.setController(partController);
+            root = loader.load();
+            stage.setTitle("Part");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding(event -> tableParts.setItems(dao.getParts()));
         } catch (IOException e) {
             e.printStackTrace();
         }

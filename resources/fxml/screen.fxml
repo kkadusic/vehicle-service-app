@@ -35,8 +35,8 @@
                 </Menu>
                 <Menu fx:id="menuOptions" mnemonicParsing="false" text="Options">
                     <items>
-                        <RadioMenuItem fx:id="menuDb" mnemonicParsing="false" text="SQLite" />
-                        <RadioMenuItem fx:id="menuXml" mnemonicParsing="false" text="XML" />
+                        <RadioMenuItem fx:id="menuDb" mnemonicParsing="false" onAction="#switchDb" text="SQLite" />
+                        <RadioMenuItem fx:id="menuXml" mnemonicParsing="false" onAction="#switchXml" text="XML" />
                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
@@ -47,7 +47,7 @@
         </MenuBar>
         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
             <tabs>
-                <Tab id="vlasniciTab" fx:id="ownersTab" text="Owners">
+                <Tab fx:id="ownersTab" text="Owners">
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
@@ -55,9 +55,9 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddOwner" onAction="#addOwnerAction" mnemonicParsing="false" />
-                                        <Button fx:id="tbRemoveOwner" onAction="#removeOwnerAction" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
-                                        <Button fx:id="tbEditOwner" onAction="#editOwnerAction" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" text="Add" />
+                                        <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" text="Remove" />
+                                        <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" text="Edit" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
@@ -71,7 +71,7 @@
                         </VBox>
                     </content>
                 </Tab>
-                <Tab id="vozilaTab" fx:id="vehiclesTab" text="Vehicles">
+                <Tab fx:id="vehiclesTab" text="Vehicles">
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
@@ -79,9 +79,9 @@
                                     <items>
                                         <Label text="Search" />
                                         <TextField />
-                                        <Button fx:id="tbAddVehicle" onAction="#addVehicleAction" mnemonicParsing="false" />
-                                        <Button fx:id="tbRemoveVehicle" onAction="#removeVehicleAction" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" />
-                                        <Button fx:id="tbEditVehicle" onAction="#editVehicleAction" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" />
+                                        <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" text="Add" />
+                                        <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" text="Remove" />
+                                        <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" text="Edit" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">
@@ -97,6 +97,32 @@
                         </VBox>
                     </content>
                 </Tab>
+            <Tab fx:id="partsTab" text="Parts">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                           <items>
+                              <Label text="Search" />
+                              <TextField />
+                              <Button fx:id="tbAddPart" onAction="#addPartAction" mnemonicParsing="false" text="Add" />
+                              <Button fx:id="tbRemovePart" onAction="#removePartAction" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" text="Remove" />
+                              <Button fx:id="tbEditPart" onAction="#editPartAction" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" text="Edit" />
+                           </items>
+                        </ToolBar>
+                        <TableView fx:id="tableParts" prefHeight="374.0" prefWidth="698.0">
+                           <columns>
+                              <TableColumn fx:id="colPartId" prefWidth="66.0" text="ID" />
+                              <TableColumn fx:id="colPartBrand" prefWidth="160.0" text="Brand" />
+                              <TableColumn fx:id="colPartModel" prefWidth="169.0" text="Model" />
+                              <TableColumn fx:id="colPartName" prefWidth="157.0" text="Name" />
+                              <TableColumn fx:id="colPartQuantity" prefWidth="145.0" text="Quantity" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
             </tabs>
         </TabPane>
     </children>
