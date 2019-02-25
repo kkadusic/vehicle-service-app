@@ -11,6 +11,8 @@ public interface VehiclesDAO {
 
     ObservableList<Brand> getBrands();
 
+    ObservableList<Part> getParts();
+
     void addOwner(Owner owner);
 
     void changeOwner(Owner owner);
@@ -22,6 +24,12 @@ public interface VehiclesDAO {
     void changeVehicle(Vehicle vehicle);
 
     void deleteVehicle(Vehicle vehicle);
+
+    void addPart(Part part);
+
+    void changePart(Part part);
+
+    void deletePart(Part part);
 
     void close();
 }

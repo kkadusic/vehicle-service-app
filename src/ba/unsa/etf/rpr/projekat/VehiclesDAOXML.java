@@ -15,6 +15,7 @@ public class VehiclesDAOXML implements VehiclesDAO {
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<Location> locations = new ArrayList<>();
     private ArrayList<Brand> brands = new ArrayList<>();
+    private ArrayList<Part> parts = new ArrayList<>();
 
     VehiclesDAOXML() {
         readFiles();
@@ -35,6 +36,9 @@ public class VehiclesDAOXML implements VehiclesDAO {
             decoder.close();
             decoder = new XMLDecoder(new FileInputStream("brands.xml"));
             brands = (ArrayList<Brand>) decoder.readObject();
+            decoder.close();
+            decoder = new XMLDecoder(new FileInputStream("parts.xml"));
+            parts = (ArrayList<Part>) decoder.readObject();
             decoder.close();
 
             // Sorting lists
@@ -59,6 +63,9 @@ public class VehiclesDAOXML implements VehiclesDAO {
             encoder = new XMLEncoder(new FileOutputStream("brands.xml"));
             encoder.writeObject(brands);
             encoder.close();
+            encoder = new XMLEncoder(new FileOutputStream("parts.xml"));
+            encoder.writeObject(parts);
+            encoder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -82,6 +89,11 @@ public class VehiclesDAOXML implements VehiclesDAO {
     @Override
     public ObservableList<Brand> getBrands() {
         return FXCollections.observableArrayList(brands);
+    }
+
+    @Override
+    public ObservableList<Part> getParts() {
+        return FXCollections.observableArrayList(parts);
     }
 
     @Override
@@ -197,6 +209,34 @@ public class VehiclesDAOXML implements VehiclesDAO {
         for (int i = 0; i < vehicles.size(); i++)
             if (vehicles.get(i).getId() == vehicle.getId())
                 vehicles.remove(i);
+        writeFiles();
+    }
+
+    @Override
+    public void addPart(Part part) {
+        // Choosing ID
+        int maxId = 0;
+        for (Part p : parts)
+            if (p.getId() > maxId)
+                maxId = p.getId();
+        part.setId(maxId + 1);
+        parts.add(part);
+        writeFiles();
+    }
+
+    @Override
+    public void changePart(Part part) {
+        for (int i = 0; i < parts.size(); i++)
+            if (parts.get(i).getId() == part.getId())
+                parts.set(i, part);
+        writeFiles();
+    }
+
+    @Override
+    public void deletePart(Part part) {
+        for (int i = 0; i < parts.size(); i++)
+            if (parts.get(i).getId() == part.getId())
+                parts.remove(i);
         writeFiles();
     }
 

@@ -12,6 +12,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
     private PreparedStatement getVehiclesQuery, getNewVehicleIdQuery, getVehiclesForOwnerQuery, addVehicleQuery, changeVehicleQuery, deleteVehicleQuery;
     private PreparedStatement getLocationsQuery, getLocationQuery, getNewLocationIdQuery, addLocationQuery;
     private PreparedStatement getBrandsQuery, getBrandQuery, getNewBrandIdQuery, addBrandQuery;
+    private PreparedStatement getPartsQuery, getNewPartIdQuery, addPartQuery, changePartQuery, deletePartQuery;
 
     VehiclesDAOBase() {
         try {
@@ -45,9 +46,31 @@ public class VehiclesDAOBase implements VehiclesDAO {
             getNewBrandIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM brand");
             addBrandQuery = conn.prepareStatement("INSERT INTO brand VALUES (?,?)");
 
+            //Part
+            getPartsQuery = conn.prepareStatement("SELECT * FROM part ORDER BY brand");
+            getNewPartIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM part");
+            addPartQuery = conn.prepareStatement("INSERT INTO part VALUES (?,?,?,?,?)");
+            changePartQuery = conn.prepareStatement("UPDATE part SET brand=?, model=?, name=?, quantity=? WHERE id=?");
+            deletePartQuery = conn.prepareStatement("DELETE FROM part WHERE id=?");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public ObservableList<Part> getParts() {
+        ObservableList<Part> parts = FXCollections.observableArrayList();
+        try {
+            ResultSet rs = getPartsQuery.executeQuery();
+            while (rs.next()) {
+                Part part = new Part(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+                parts.add(part);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return parts;
     }
 
     @Override
@@ -162,6 +185,49 @@ public class VehiclesDAOBase implements VehiclesDAO {
             e.printStackTrace();
         }
         return location;
+    }
+
+    @Override
+    public void addPart(Part part) {
+        try {
+            ResultSet rs = getNewPartIdQuery.executeQuery();
+            int newId = 1;
+            if (rs.next()) newId = rs.getInt(1);
+            part.setId(newId);
+
+            addPartQuery.setInt(1, part.getId());
+            addPartQuery.setString(2, part.getBrand());
+            addPartQuery.setString(3, part.getModel());
+            addPartQuery.setString(4, part.getName());
+            addPartQuery.setInt(5, part.getQuantity());
+            addPartQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changePart(Part part) {
+        try {
+            changePartQuery.setInt(5, part.getId());
+            changePartQuery.setString(1, part.getBrand());
+            changePartQuery.setString(2, part.getModel());
+            changePartQuery.setString(3, part.getName());
+            changePartQuery.setInt(4, part.getQuantity());
+            changePartQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deletePart(Part part) {
+        try {
+            deletePartQuery.setInt(1, part.getId());
+            deletePartQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
