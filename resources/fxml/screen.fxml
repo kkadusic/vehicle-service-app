@@ -42,7 +42,7 @@
                         <RadioMenuItem fx:id="menuDb" mnemonicParsing="false" onAction="#switchDb" text="SQLite" />
                         <RadioMenuItem fx:id="menuXml" mnemonicParsing="false" onAction="#switchXml" text="XML" />
                     </items></Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="Help" onAction="#handleAbout">
                     <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                     </items>
