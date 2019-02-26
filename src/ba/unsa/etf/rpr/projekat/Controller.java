@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.projekat;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,6 +44,13 @@ public class Controller {
     public TableColumn colPartName;
     public TableColumn colPartQuantity;
 
+    public TableView tableServices;
+    public TableColumn colServiceId;
+    public TableColumn colServiceVehicleIdNumber;
+    public TableColumn colMechanicName;
+    public TableColumn colInspectionsNumber;
+    public TableColumn colDetails;
+
     private VehiclesDAO dao = null;
 
     @FXML
@@ -85,6 +93,13 @@ public class Controller {
         colPartModel.setCellValueFactory(new PropertyValueFactory("model"));
         colPartName.setCellValueFactory(new PropertyValueFactory("name"));
         colPartQuantity.setCellValueFactory(new PropertyValueFactory("quantity"));
+
+        tableServices.setItems(dao.getServices());
+        colServiceId.setCellValueFactory(new PropertyValueFactory("id"));
+        colServiceVehicleIdNumber.setCellValueFactory(new PropertyValueFactory("vehicleIdNumber"));
+        colMechanicName.setCellValueFactory(new PropertyValueFactory("mechanicName"));
+        colInspectionsNumber.setCellValueFactory(new PropertyValueFactory("inspectionsNumber"));
+        colDetails.setCellValueFactory(new PropertyValueFactory("details"));
     }
 
     public void addOwnerAction(ActionEvent actionEvent) {
@@ -164,6 +179,7 @@ public class Controller {
             root = loader.load();
             stage.setTitle("Vehicle");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            //stage.getIcons().add(new Image("/img/car-form.png"));
             stage.setResizable(false);
             stage.show();
 
@@ -204,9 +220,9 @@ public class Controller {
             root = loader.load();
             stage.setTitle("Vehicle");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            //stage.getIcons().add(new Image("/img/car-icon.png"));
             stage.setResizable(false);
             stage.show();
-
             stage.setOnHiding(event -> tableVehicles.setItems(dao.getVehicles()));
         } catch (IOException e) {
             e.printStackTrace();
@@ -270,6 +286,65 @@ public class Controller {
         }
     }
 
+    public void addServiceAction(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/service.fxml"));
+            ServiceController serviceController = new ServiceController(dao, null);
+            loader.setController(serviceController);
+            root = loader.load();
+            stage.setTitle("Service");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding(event -> tableServices.setItems(dao.getServices()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeServiceAction(ActionEvent actionEvent) {
+        Service service = (Service) tableServices.getSelectionModel().getSelectedItem();
+        if (service == null) return;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation of removing service");
+        alert.setHeaderText("Removing service: " + service.getDetails());
+        alert.setContentText("Are you sure that you want to remove services?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            dao.deleteService(service);
+            tableServices.setItems(dao.getServices());
+        }
+    }
+
+    public void editServiceAction(ActionEvent actionEvent) {
+        Service service = (Service) tableServices.getSelectionModel().getSelectedItem();
+        if (service == null) return;
+
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/service.fxml"));
+            ServiceController serviceController = new ServiceController(dao, service);
+            loader.setController(serviceController);
+            root = loader.load();
+            stage.setTitle("Service");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+            stage.setOnHiding(event -> tableServices.setItems(dao.getServices()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     public void switchDb(ActionEvent actionEvent) {
         initializeDatabase();
     }
@@ -284,6 +359,10 @@ public class Controller {
         alert.setHeaderText("Author: Kerim Kadušić" + "\nETF Sarajevo, RPR");
         alert.setContentText("Application for technical vehicle service, 2019.");
         alert.showAndWait();
+    }
+
+    public void exitClick(ActionEvent actionEvent) {
+        Platform.exit();
     }
 
 }

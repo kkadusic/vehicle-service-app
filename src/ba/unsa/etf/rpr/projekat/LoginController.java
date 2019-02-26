@@ -31,6 +31,7 @@ public class LoginController {
                 mainController = loader.getController();
                 myStage.setTitle("Main window");
                 myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                //myStage.getIcons().add(new Image("/img/car-icon.png"));
                 myStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
