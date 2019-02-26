@@ -2,8 +2,5 @@
     -fx-control-inner-background: rgb(196, 255, 192);
 }
 .fieldWrong {
-    -fx-control-inner-background: #ffe5f1;
-}
-.fieldValidating {
-    -fx-control-inner-background: yellow;
+    -fx-control-inner-background: #ffdfe5;
 }

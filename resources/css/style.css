@@ -1,11 +1,11 @@
-#tbAddOwner, #tbAddVehicle, #tbAddPart {
+#tbAddOwner, #tbAddVehicle, #tbAddPart, #tbAddService {
     -fx-graphic: url("/img/plus.png");
 }
 
-#tbRemoveOwner, #tbRemoveVehicle, #tbRemovePart {
+#tbRemoveOwner, #tbRemoveVehicle, #tbRemovePart, #tbRemoveService {
     -fx-graphic: url("/img/minus.png");
 }
 
-#tbEditOwner, #tbEditVehicle, #tbEditPart {
+#tbEditOwner, #tbEditVehicle, #tbEditPart, #tbEditService {
     -fx-graphic: url("/img/edit.png");
 }
