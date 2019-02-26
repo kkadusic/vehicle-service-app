@@ -13,6 +13,8 @@ public interface VehiclesDAO {
 
     ObservableList<Part> getParts();
 
+    ObservableList<Service> getServices();
+
     void addOwner(Owner owner);
 
     void changeOwner(Owner owner);
@@ -30,6 +32,12 @@ public interface VehiclesDAO {
     void changePart(Part part);
 
     void deletePart(Part part);
+
+    void addService(Service service);
+
+    void changeService(Service service);
+
+    void deleteService(Service service);
 
     void close();
 }

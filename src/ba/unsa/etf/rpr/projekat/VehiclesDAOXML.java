@@ -16,8 +16,9 @@ public class VehiclesDAOXML implements VehiclesDAO {
     private ArrayList<Location> locations = new ArrayList<>();
     private ArrayList<Brand> brands = new ArrayList<>();
     private ArrayList<Part> parts = new ArrayList<>();
+    private ArrayList<Service> services = new ArrayList<>();
 
-    VehiclesDAOXML() {
+    public VehiclesDAOXML() {
         readFiles();
     }
 
@@ -39,6 +40,9 @@ public class VehiclesDAOXML implements VehiclesDAO {
             decoder.close();
             decoder = new XMLDecoder(new FileInputStream("parts.xml"));
             parts = (ArrayList<Part>) decoder.readObject();
+            decoder.close();
+            decoder = new XMLDecoder(new FileInputStream("services.xml"));
+            services = (ArrayList<Service>) decoder.readObject();
             decoder.close();
 
             // Sorting lists
@@ -65,6 +69,9 @@ public class VehiclesDAOXML implements VehiclesDAO {
             encoder.close();
             encoder = new XMLEncoder(new FileOutputStream("parts.xml"));
             encoder.writeObject(parts);
+            encoder.close();
+            encoder = new XMLEncoder(new FileOutputStream("services.xml"));
+            encoder.writeObject(services);
             encoder.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -94,6 +101,11 @@ public class VehiclesDAOXML implements VehiclesDAO {
     @Override
     public ObservableList<Part> getParts() {
         return FXCollections.observableArrayList(parts);
+    }
+
+    @Override
+    public ObservableList<Service> getServices() {
+        return FXCollections.observableArrayList(services);
     }
 
     @Override
@@ -237,6 +249,34 @@ public class VehiclesDAOXML implements VehiclesDAO {
         for (int i = 0; i < parts.size(); i++)
             if (parts.get(i).getId() == part.getId())
                 parts.remove(i);
+        writeFiles();
+    }
+
+    @Override
+    public void addService(Service service) {
+        // Choosing ID
+        int maxId = 0;
+        for (Service s : services)
+            if (s.getId() > maxId)
+                maxId = s.getId();
+        service.setId(maxId + 1);
+        services.add(service);
+        writeFiles();
+    }
+
+    @Override
+    public void changeService(Service service) {
+        for (int i = 0; i < services.size(); i++)
+            if (services.get(i).getId() == service.getId())
+                services.set(i, service);
+        writeFiles();
+    }
+
+    @Override
+    public void deleteService(Service service) {
+        for (int i = 0; i < services.size(); i++)
+            if (services.get(i).getId() == service.getId())
+                services.remove(i);
         writeFiles();
     }
 

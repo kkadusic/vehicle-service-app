@@ -13,8 +13,9 @@ public class VehiclesDAOBase implements VehiclesDAO {
     private PreparedStatement getLocationsQuery, getLocationQuery, getNewLocationIdQuery, addLocationQuery;
     private PreparedStatement getBrandsQuery, getBrandQuery, getNewBrandIdQuery, addBrandQuery;
     private PreparedStatement getPartsQuery, getNewPartIdQuery, addPartQuery, changePartQuery, deletePartQuery;
+    private PreparedStatement getServicesQuery, getNewServiceIdQuery, addServiceQuery, changeServiceQuery, deleteServiceQuery;
 
-    VehiclesDAOBase() {
+    public VehiclesDAOBase() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:resources/db/vehicle.db");
 
@@ -53,6 +54,13 @@ public class VehiclesDAOBase implements VehiclesDAO {
             changePartQuery = conn.prepareStatement("UPDATE part SET brand=?, model=?, name=?, quantity=? WHERE id=?");
             deletePartQuery = conn.prepareStatement("DELETE FROM part WHERE id=?");
 
+            //Service
+            getServicesQuery = conn.prepareStatement("SELECT * FROM service ORDER BY id");
+            getNewServiceIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM service");
+            addServiceQuery = conn.prepareStatement("INSERT INTO service VALUES (?,?,?,?,?)");
+            changeServiceQuery = conn.prepareStatement("UPDATE service SET vehicle_id_number=?, mechanic_name=?, inspections_number=?, details=? WHERE id=?");
+            deleteServiceQuery = conn.prepareStatement("DELETE FROM service WHERE id=?");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,6 +79,21 @@ public class VehiclesDAOBase implements VehiclesDAO {
             e.printStackTrace();
         }
         return parts;
+    }
+
+    @Override
+    public ObservableList<Service> getServices() {
+        ObservableList<Service> services = FXCollections.observableArrayList();
+        try {
+            ResultSet rs = getServicesQuery.executeQuery();
+            while (rs.next()) {
+                Service service = new Service(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+                services.add(service);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return services;
     }
 
     @Override
@@ -225,6 +248,49 @@ public class VehiclesDAOBase implements VehiclesDAO {
         try {
             deletePartQuery.setInt(1, part.getId());
             deletePartQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void addService(Service service) {
+        try {
+            ResultSet rs = getNewServiceIdQuery.executeQuery();
+            int newId = 1;
+            if (rs.next()) newId = rs.getInt(1);
+            service.setId(newId);
+
+            addServiceQuery.setInt(1, service.getId());
+            addServiceQuery.setString(2, service.getVehicleIdNumber());
+            addServiceQuery.setString(3, service.getMechanicName());
+            addServiceQuery.setInt(4, service.getInspectionsNumber());
+            addServiceQuery.setString(5, service.getDetails());
+            addServiceQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changeService(Service service) {
+        try {
+            changeServiceQuery.setInt(5, service.getId());
+            changeServiceQuery.setString(1, service.getVehicleIdNumber());
+            changeServiceQuery.setString(2, service.getMechanicName());
+            changeServiceQuery.setInt(3, service.getInspectionsNumber());
+            changeServiceQuery.setString(4, service.getDetails());
+            changeServiceQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteService(Service service) {
+        try {
+            deleteServiceQuery.setInt(1, service.getId());
+            deleteServiceQuery.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
