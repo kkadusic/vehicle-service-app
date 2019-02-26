@@ -36,7 +36,6 @@ public class Controller {
     public TableColumn colHorsepower;
     public TableColumn colEngine;
 
-
     public TableView<Part> tableParts;
     public TableColumn colPartId;
     public TableColumn colPartBrand;
@@ -277,6 +276,14 @@ public class Controller {
 
     public void switchXml(ActionEvent actionEvent) {
         initializeXml();
+    }
+
+    public void handleAbout() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("About");
+        alert.setHeaderText("Author: Kerim Kadušić" + "\nETF Sarajevo, RPR");
+        alert.setContentText("Application for technical vehicle service, 2019.");
+        alert.showAndWait();
     }
 
 }

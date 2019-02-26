@@ -52,7 +52,6 @@ public class LoginController {
             password.getStyleClass().removeAll("fieldRight");
             password.getStyleClass().add("fieldWrong");
             return false;
-
         } else {
             username.getStyleClass().removeAll("fieldWrong");
             username.getStyleClass().add("fieldRight");
