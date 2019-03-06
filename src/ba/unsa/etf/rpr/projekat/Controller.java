@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -44,7 +41,7 @@ public class Controller {
     public TableColumn colPartName;
     public TableColumn colPartQuantity;
 
-    public TableView tableServices;
+    public TableView<Service> tableServices;
     public TableColumn colServiceId;
     public TableColumn colServiceVehicleIdNumber;
     public TableColumn colMechanicName;
@@ -56,6 +53,50 @@ public class Controller {
     @FXML
     public void initialize() {
         initializeDatabase();
+
+        // Detecting double click for owner editing
+        tableOwners.setRowFactory(tv -> {
+            TableRow<Owner> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    editOwnerAction(null);
+                }
+            });
+            return row;
+        });
+
+        // Detecting double click for vehicle editing
+        tableVehicles.setRowFactory(tv -> {
+            TableRow<Vehicle> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    editVehicleAction(null);
+                }
+            });
+            return row;
+        });
+
+        // Detecting double click for part editing
+        tableParts.setRowFactory(tv -> {
+            TableRow<Part> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    editPartAction(null);
+                }
+            });
+            return row;
+        });
+
+        // Detecting double click for service editing
+        tableServices.setRowFactory(tv -> {
+            TableRow<Service> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    editServiceAction(null);
+                }
+            });
+            return row;
+        });
     }
 
     public void initializeDatabase() {
@@ -294,7 +335,7 @@ public class Controller {
             ServiceController serviceController = new ServiceController(dao, null);
             loader.setController(serviceController);
             root = loader.load();
-            stage.setTitle("Service");
+            stage.setTitle("Add new service");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -306,7 +347,7 @@ public class Controller {
     }
 
     public void removeServiceAction(ActionEvent actionEvent) {
-        Service service = (Service) tableServices.getSelectionModel().getSelectedItem();
+        Service service = tableServices.getSelectionModel().getSelectedItem();
         if (service == null) return;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -322,7 +363,7 @@ public class Controller {
     }
 
     public void editServiceAction(ActionEvent actionEvent) {
-        Service service = (Service) tableServices.getSelectionModel().getSelectedItem();
+        Service service = tableServices.getSelectionModel().getSelectedItem();
         if (service == null) return;
 
         Stage stage = new Stage();
@@ -332,7 +373,7 @@ public class Controller {
             ServiceController serviceController = new ServiceController(dao, service);
             loader.setController(serviceController);
             root = loader.load();
-            stage.setTitle("Service");
+            stage.setTitle("Edit service");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -342,8 +383,6 @@ public class Controller {
             e.printStackTrace();
         }
     }
-
-
 
     public void switchDb(ActionEvent actionEvent) {
         initializeDatabase();
