@@ -15,6 +15,8 @@ public interface VehiclesDAO {
 
     ObservableList<Service> getServices();
 
+    ObservableList<User> getUsers();
+
     void addOwner(Owner owner);
 
     void changeOwner(Owner owner);
@@ -22,6 +24,8 @@ public interface VehiclesDAO {
     void deleteOwner(Owner owner);
 
     void addVehicle(Vehicle vehicle);
+
+    void addUser(User user);
 
     void changeVehicle(Vehicle vehicle);
 

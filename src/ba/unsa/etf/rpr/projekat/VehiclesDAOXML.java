@@ -109,6 +109,11 @@ public class VehiclesDAOXML implements VehiclesDAO {
     }
 
     @Override
+    public ObservableList<User> getUsers() {
+        return null;
+    }
+
+    @Override
     public void addOwner(Owner owner) {
         owner.setPlaceOfBirth(addLocationIfNotExists(owner.getPlaceOfBirth()));
         owner.setPlaceOfResidence(addLocationIfNotExists(owner.getPlaceOfResidence()));
@@ -182,6 +187,11 @@ public class VehiclesDAOXML implements VehiclesDAO {
 
         vehicles.add(vehicle);
         writeFiles();
+    }
+
+    @Override
+    public void addUser(User user) {
+
     }
 
     private Brand addBrandIfNotExists(Brand brand) {

@@ -14,6 +14,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
     private PreparedStatement getBrandsQuery, getBrandQuery, getNewBrandIdQuery, addBrandQuery;
     private PreparedStatement getPartsQuery, getNewPartIdQuery, addPartQuery, changePartQuery, deletePartQuery;
     private PreparedStatement getServicesQuery, getNewServiceIdQuery, addServiceQuery, changeServiceQuery, deleteServiceQuery;
+    private PreparedStatement getUsersQuery, getNewUserIdQuery, addUserQuery;
 
     public VehiclesDAOBase() {
         try {
@@ -61,6 +62,11 @@ public class VehiclesDAOBase implements VehiclesDAO {
             changeServiceQuery = conn.prepareStatement("UPDATE service SET vehicle_id_number=?, mechanic_name=?, inspections_number=?, details=? WHERE id=?");
             deleteServiceQuery = conn.prepareStatement("DELETE FROM service WHERE id=?");
 
+            //User
+            getUsersQuery = conn.prepareStatement("SELECT * FROM user");
+            getNewUserIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM user");
+            addUserQuery = conn.prepareStatement("INSERT INTO user VALUES (?,?,?)");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,6 +87,7 @@ public class VehiclesDAOBase implements VehiclesDAO {
         return parts;
     }
 
+
     @Override
     public ObservableList<Service> getServices() {
         ObservableList<Service> services = FXCollections.observableArrayList();
@@ -94,6 +101,21 @@ public class VehiclesDAOBase implements VehiclesDAO {
             e.printStackTrace();
         }
         return services;
+    }
+
+    @Override
+    public ObservableList<User> getUsers() {
+        ObservableList<User> users = FXCollections.observableArrayList();
+        try {
+            ResultSet rs = getUsersQuery.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     @Override
@@ -208,6 +230,23 @@ public class VehiclesDAOBase implements VehiclesDAO {
             e.printStackTrace();
         }
         return location;
+    }
+
+    @Override
+    public void addUser(User user) {
+        try {
+            ResultSet rs = getNewUserIdQuery.executeQuery();
+            int newId = 1;
+            if (rs.next()) newId = rs.getInt(1);
+            user.setId(newId);
+
+            addUserQuery.setInt(1, user.getId());
+            addUserQuery.setString(2, user.getUsername());
+            addUserQuery.setString(3, user.getPassword());
+            addUserQuery.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
