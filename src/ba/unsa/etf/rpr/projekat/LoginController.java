@@ -1,7 +1,9 @@
 package ba.unsa.etf.rpr.projekat;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -13,14 +15,26 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class LoginController {
 
-    public Button btnLogin;
-    public PasswordField passwordField;
     public TextField usernameField;
+    public PasswordField passwordField;
+    public Button btnLogin;
+    public Button btnNewUser;
 
     Controller mainController;
 
     private Connection conn = null;
     private PreparedStatement getUsersQuery, getNewUserIdQuery, addUserQuery;
+    private VehiclesDAO dao = null;
+
+    @FXML
+    public void initialize() {
+        initializeDatabase();
+    }
+
+    public void initializeDatabase() {
+        if (dao != null) dao.close();
+        dao = new VehiclesDAOBase();
+    }
 
     public void openMainWindow(ActionEvent actionEvent) {
         try {
@@ -42,6 +56,7 @@ public class LoginController {
                 myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
                 //myStage.getIcons().add(new Image("/img/car-icon.png"));
                 myStage.show();
+                conn.close(); //So the database won't be locked (because of two connections)
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Invalid data");
@@ -51,6 +66,23 @@ public class LoginController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addUserAction(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/user.fxml"));
+            UserController userController = new UserController(dao, null);
+            loader.setController(userController);
+            root = loader.load();
+            stage.setTitle("User");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
