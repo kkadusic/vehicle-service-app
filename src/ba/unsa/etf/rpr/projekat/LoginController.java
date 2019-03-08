@@ -23,7 +23,7 @@ public class LoginController {
     Controller mainController;
 
     private Connection conn = null;
-    private PreparedStatement getUsersQuery, getNewUserIdQuery, addUserQuery;
+    private PreparedStatement getUsersQuery;
     private VehiclesDAO dao = null;
 
     @FXML
@@ -40,9 +40,6 @@ public class LoginController {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:resources/db/vehicle.db");
             getUsersQuery = conn.prepareStatement("SELECT * FROM user WHERE username = ? AND password = ?");
-            getNewUserIdQuery = conn.prepareStatement("SELECT MAX(id)+1 FROM user");
-            addUserQuery = conn.prepareStatement("INSERT INTO user VALUES (?,?,?)");
-
             getUsersQuery.setString(1, usernameField.getText());
             getUsersQuery.setString(2, passwordField.getText());
             ResultSet rs = getUsersQuery.executeQuery();
@@ -59,14 +56,12 @@ public class LoginController {
                 conn.close(); //So the database won't be locked (because of two connections)
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid data");
-                alert.setHeaderText("The username or password you’ve \nentered doesn’t match any account");
-                alert.setContentText("Please enter new username and password");
+                alert.setTitle("Invalid username or password");
+                alert.setHeaderText("Please enter new username and password");
+                alert.setContentText("The username or password you’ve \nentered doesn’t match any account");
                 alert.showAndWait();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
     }
