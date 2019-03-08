@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="269.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="97.0" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="453.0" minWidth="10.0" prefWidth="181.0" />
@@ -19,6 +19,7 @@
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
@@ -40,12 +41,21 @@
             <GridPane.margin>
                 <Insets right="10.0" />
             </GridPane.margin></TextField>
-        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
             <buttons>
                 <Button fx:id="btnOk" mnemonicParsing="false" onAction="#okClickUser" prefHeight="35.0" text="Ok" />
-                <Button fx:id="btnCancel" layoutX="535.0" onAction="#cancelClickUser" layoutY="38.0" mnemonicParsing="false" prefHeight="35.0" text="Cancel" />
+                <Button fx:id="btnCancel" layoutX="535.0" layoutY="38.0" mnemonicParsing="false" onAction="#cancelClickUser" prefHeight="35.0" text="Cancel" />
             </buttons>
         </ButtonBar>
       <PasswordField fx:id="passwordFieldForm" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="Repeat pass" GridPane.rowIndex="2">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </Label>
+      <PasswordField fx:id="passwordRepeatFieldForm" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </children>
 </GridPane>
