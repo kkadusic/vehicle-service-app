@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:controller="ba.unsa.etf.rpr.projekat.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane id="loginGridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.projekat.LoginController">
     <stylesheets>
         <URL value="@/css/form.css" />
     </stylesheets>
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="264.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="336.0" minWidth="10.0" prefWidth="336.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -29,17 +29,12 @@
     <children>
         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
             <children>
-                <Label alignment="CENTER" prefHeight="120.0" prefWidth="300.0" text="Log in">
+                <Label alignment="CENTER" prefHeight="120.0" prefWidth="300.0" text="Welcome">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Label>
-                <Label text="Username">
-                    <VBox.margin>
-                        <Insets left="10.0" />
-                    </VBox.margin>
-                </Label>
-                <TextField fx:id="usernameField" prefHeight="41.0" prefWidth="300.0">
+                <TextField fx:id="usernameField" prefHeight="41.0" prefWidth="300.0" promptText="Username">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -50,12 +45,7 @@
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <Label text="Password">
-                    <VBox.margin>
-                        <Insets left="10.0" />
-                    </VBox.margin>
-                </Label>
-                <PasswordField fx:id="passwordField" prefHeight="41.0" prefWidth="300.0">
+                <PasswordField fx:id="passwordField" prefHeight="41.0" prefWidth="300.0" promptText="Password">
                     <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </VBox.margin>
@@ -71,10 +61,10 @@
                 </Button>
             <Pane prefHeight="52.0" prefWidth="300.0" />
             <Label text="&quot;The only way to do great work is to love what you do&quot;" />
-            <Button fx:id="btnNewUser" onAction="#addUserAction" mnemonicParsing="false" text="Create new user" />
+            <Button fx:id="btnNewUser" mnemonicParsing="false" onAction="#addUserAction" text="Create new user" />
             </children>
         </VBox>
-        <ImageView fitHeight="211.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="213.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/login.png" />
             </image>

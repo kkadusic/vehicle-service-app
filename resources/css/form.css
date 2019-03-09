@@ -1,6 +1,14 @@
 .fieldRight {
     -fx-control-inner-background: rgb(196, 255, 192);
 }
+
 .fieldWrong {
     -fx-control-inner-background: #ffdfe5;
+}
+
+#loginGridPane {
+    -fx-background-image: url("/img/login-background.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 500;
+    -fx-background-position: center center;
 }
