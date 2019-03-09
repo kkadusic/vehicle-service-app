@@ -56,7 +56,7 @@ public class LoginController {
                 conn.close(); //So the database won't be locked (because of two connections)
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid username or password");
+                alert.setTitle("Invalid user");
                 alert.setHeaderText("Please enter new username and password");
                 alert.setContentText("The username or password you’ve \nentered doesn’t match any account");
                 alert.showAndWait();
@@ -74,7 +74,7 @@ public class LoginController {
             UserController userController = new UserController(dao, null);
             loader.setController(userController);
             root = loader.load();
-            stage.setTitle("User");
+            stage.setTitle("New user");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

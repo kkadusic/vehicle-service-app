@@ -66,9 +66,9 @@
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
                                     <columns>
-                                        <TableColumn fx:id="colOwnerId" prefWidth="123.0" text="ID" />
-                                        <TableColumn fx:id="colFirstLastName" prefWidth="339.0" text="First name and last name" />
-                                        <TableColumn fx:id="colNationalIdNumber" prefWidth="235.0" text="National ID number" />
+                                        <TableColumn fx:id="colOwnerId" prefWidth="56.0" text="ID" />
+                                        <TableColumn fx:id="colFirstLastName" prefWidth="448.0" text="First name and last name" />
+                                        <TableColumn fx:id="colNationalIdNumber" prefWidth="243.0" text="National ID number" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -98,7 +98,7 @@
                               <TableColumn fx:id="colModelYear" prefWidth="75.0" text="Model year" />
                               <TableColumn fx:id="colEmissionStandard" prefWidth="87.0" text="Emission" />
                               <TableColumn fx:id="colHorsepower" prefWidth="78.0" text="Horsepower" />
-                              <TableColumn fx:id="colEngine" prefWidth="81.0" text="Engine" />
+                              <TableColumn fx:id="colEngine" prefWidth="82.0" text="Engine" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -123,8 +123,8 @@
                               <TableColumn fx:id="colPartId" prefWidth="66.0" text="ID" />
                               <TableColumn fx:id="colPartBrand" prefWidth="160.0" text="Brand" />
                               <TableColumn fx:id="colPartModel" prefWidth="169.0" text="Model" />
-                              <TableColumn fx:id="colPartName" prefWidth="157.0" text="Name" />
-                              <TableColumn fx:id="colPartQuantity" prefWidth="145.0" text="Quantity" />
+                              <TableColumn fx:id="colPartName" prefWidth="222.0" text="Name" />
+                              <TableColumn fx:id="colPartQuantity" prefWidth="131.0" text="Quantity" />
                            </columns>
                         </TableView>
                      </children>

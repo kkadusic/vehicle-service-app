@@ -6,9 +6,9 @@
     -fx-control-inner-background: #ffdfe5;
 }
 
-#loginGridPane {
+#loginVBox {
     -fx-background-image: url("/img/login-background.jpg");
     -fx-background-repeat: stretch;
-    -fx-background-size: 900 500;
+    -fx-background-size: 600 400;
     -fx-background-position: center center;
 }
