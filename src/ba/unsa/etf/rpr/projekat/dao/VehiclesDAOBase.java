@@ -1,5 +1,6 @@
-package ba.unsa.etf.rpr.projekat;
+package ba.unsa.etf.rpr.projekat.dao;
 
+import ba.unsa.etf.rpr.projekat.dto.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

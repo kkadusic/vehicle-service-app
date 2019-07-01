@@ -1,15 +1,16 @@
-package ba.unsa.etf.rpr.projekat;
+package ba.unsa.etf.rpr.projekat.dto;
 
-public class Brand {
+public class Location {
     private int id;
-    private String name;
+    private String name, postalCode;
 
-    public Brand() {
+    public Location() {
     }
 
-    public Brand(int id, String name) {
+    public Location(int id, String name, String postalCode) {
         this.id = id;
         this.name = name;
+        this.postalCode = postalCode;
     }
 
     public int getId() {
@@ -26,6 +27,14 @@ public class Brand {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     @Override

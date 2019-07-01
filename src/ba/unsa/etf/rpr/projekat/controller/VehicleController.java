@@ -1,5 +1,9 @@
-package ba.unsa.etf.rpr.projekat;
+package ba.unsa.etf.rpr.projekat.controller;
 
+import ba.unsa.etf.rpr.projekat.dto.Brand;
+import ba.unsa.etf.rpr.projekat.dto.Owner;
+import ba.unsa.etf.rpr.projekat.dto.Vehicle;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

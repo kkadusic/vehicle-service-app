@@ -1,5 +1,12 @@
-package ba.unsa.etf.rpr.projekat;
+package ba.unsa.etf.rpr.projekat.controller;
 
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOBase;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOXML;
+import ba.unsa.etf.rpr.projekat.dto.Owner;
+import ba.unsa.etf.rpr.projekat.dto.Part;
+import ba.unsa.etf.rpr.projekat.dto.Service;
+import ba.unsa.etf.rpr.projekat.dto.Vehicle;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;

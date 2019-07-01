@@ -1,5 +1,7 @@
-package ba.unsa.etf.rpr.projekat;
+package ba.unsa.etf.rpr.projekat.controller;
 
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

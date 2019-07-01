@@ -2,6 +2,11 @@ package ba.unsa.etf.rpr.projekat;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import ba.unsa.etf.rpr.projekat.controller.Controller;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
+import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOBase;
+import ba.unsa.etf.rpr.projekat.dto.Location;
+import ba.unsa.etf.rpr.projekat.dto.Owner;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
