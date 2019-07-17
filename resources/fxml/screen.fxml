@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.projekat.controller.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/style.css" />
     </stylesheets>
@@ -32,26 +32,34 @@
     <children>
         <MenuBar>
             <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="%file">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#exitClick" text="Exit" />
+                        <MenuItem mnemonicParsing="false" onAction="#exitClick" text="%exit" />
                     </items>
                 </Menu>
-                <Menu fx:id="menuOptions" mnemonicParsing="false" text="Options">
+                <Menu fx:id="menuOptions" mnemonicParsing="false" text="%options">
                     <items>
                         <RadioMenuItem fx:id="menuDb" mnemonicParsing="false" onAction="#switchDb" text="SQLite" />
                         <RadioMenuItem fx:id="menuXml" mnemonicParsing="false" onAction="#switchXml" text="XML" />
                     </items></Menu>
-                <Menu mnemonicParsing="false" onAction="#handleAbout" text="Help">
+                <Menu mnemonicParsing="false" onAction="#handleAbout" text="%help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="%about" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="%languages">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#changeToBosnian" text="BS" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToEnglish" text="EN" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToGerman" text="DE" />
+                  <MenuItem mnemonicParsing="false" onAction="#changeToFrench" text="FR" />
+              </items>
+            </Menu>
             </menus>
         </MenuBar>
         <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
             <tabs>
-                <Tab fx:id="ownersTab" text="Owners">
+                <Tab fx:id="ownersTab" text="%owners">
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
@@ -75,7 +83,7 @@
                         </VBox>
                     </content>
                 </Tab>
-                <Tab fx:id="vehiclesTab" text="Vehicles">
+                <Tab fx:id="vehiclesTab" text="%vehicles">
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
@@ -105,7 +113,7 @@
                         </VBox>
                     </content>
                 </Tab>
-            <Tab fx:id="partsTab" text="Parts">
+            <Tab fx:id="partsTab" text="%parts">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -131,7 +139,7 @@
                   </VBox>
                </content>
             </Tab>
-            <Tab fx:id="servicesTab" text="Services">
+            <Tab fx:id="servicesTab" text="%services">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>

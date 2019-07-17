@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -48,14 +50,41 @@ public class LoginController {
 
             if (rs.next()) {
                 Stage myStage = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"));
-                loader.load();
-                mainController = loader.getController();
+
+                /*
+                // Locale.setDefault(new Locale("bs","BIH"));
+                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"), bundle);
+
+                // loader.setController(new Controller());
+
+                // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"));
+                Parent root = loader.load();
+                // mainController = loader.getController();
                 myStage.setTitle("Main screen");
                 myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
                 //myStage.getIcons().add(new Image("/img/car-icon.png"));
                 myStage.show();
                 conn.close(); //So the database won't be locked (because of two connections)
+                */
+
+
+
+
+
+                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"), bundle);
+                loader.setController(new Controller());
+                Parent root = loader.load();
+                myStage.setTitle("App");
+                myStage.setResizable(false);
+                myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                myStage.show();
+                conn.close();
+
+
+
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Invalid user");

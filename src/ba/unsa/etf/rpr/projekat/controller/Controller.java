@@ -19,7 +19,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -55,7 +57,24 @@ public class Controller {
     public TableColumn colInspectionsNumber;
     public TableColumn colDetails;
 
+    private ResourceBundle bundle;
+    public ChoiceBox<String> jezikBox;
     private VehiclesDAO dao = null;
+
+
+
+    private void reloadScene() {
+        bundle = ResourceBundle.getBundle("Translation");
+        Scene scene = tableOwners.getScene();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"), bundle);
+        loader.setController(this);
+        try {
+            scene.setRoot(loader.load());
+        } catch (IOException ignored) {
+
+        }
+    }
+
 
     @FXML
     public void initialize() {
@@ -105,6 +124,29 @@ public class Controller {
             return row;
         });
     }
+
+
+    public void changeToBosnian(ActionEvent actionEvent){
+        Locale.setDefault(new Locale("bs", "BA"));
+        reloadScene();
+    }
+
+    public void changeToEnglish(ActionEvent actionEvent){
+        Locale.setDefault(new Locale("en", "US"));
+        reloadScene();
+    }
+
+    public void changeToGerman(ActionEvent actionEvent){
+        Locale.setDefault(new Locale("de", "DE"));
+        reloadScene();
+    }
+
+    public void changeToFrench(ActionEvent actionEvent){
+        Locale.setDefault(new Locale("fr", "FR"));
+        reloadScene();
+    }
+
+
 
     public void initializeDatabase() {
         if (dao != null) dao.close();
