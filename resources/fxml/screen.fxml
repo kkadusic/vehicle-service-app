@@ -85,6 +85,7 @@
                                         <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" />
                                         <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" />
                                         <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" />
+                              <Button mnemonicParsing="false" text="Report" onAction="#printOwners" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
@@ -107,6 +108,7 @@
                                         <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" />
                                         <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" />
                                         <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" />
+                              <Button mnemonicParsing="false" text="Report" onAction="#printVehicles" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">

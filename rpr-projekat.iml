@@ -23,5 +23,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.testfx:testfx-junit5:4.0.15-alpha" level="project" />
+    <orderEntry type="library" name="net.sf.jasperreports:jasperreports:6.7.0" level="project" />
   </component>
 </module>

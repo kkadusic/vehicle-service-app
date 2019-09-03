@@ -8,7 +8,7 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class VehiclesDAOBase implements VehiclesDAO {
-    private Connection conn;
+    private static Connection conn;
     private PreparedStatement getOwnersQuery, getOwnerQuery, getNewOwnerIdQuery, addOwnerQuery, changeOwnerQuery, deleteOwnerQuery;
     private PreparedStatement getVehiclesQuery, getNewVehicleIdQuery, getVehiclesForOwnerQuery, addVehicleQuery, changeVehicleQuery, deleteVehicleQuery;
     private PreparedStatement getLocationsQuery, getLocationQuery, getNewLocationIdQuery, addLocationQuery;
@@ -71,6 +71,10 @@ public class VehiclesDAOBase implements VehiclesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Connection getConn() {
+        return conn;
     }
 
     @Override

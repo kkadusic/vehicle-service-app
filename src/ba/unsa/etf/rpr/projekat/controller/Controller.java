@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.projekat.dto.Owner;
 import ba.unsa.etf.rpr.projekat.dto.Part;
 import ba.unsa.etf.rpr.projekat.dto.Service;
 import ba.unsa.etf.rpr.projekat.dto.Vehicle;
+import ba.unsa.etf.rpr.projekat.report.PrintReport;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.File;
 import java.io.IOException;
@@ -181,6 +183,23 @@ public class Controller {
             scene.setRoot(loader.load());
         } catch (IOException ignored) {
 
+        }
+    }
+
+
+    public void printOwners(ActionEvent actionEvent) {
+        try {
+            new PrintReport().showOwnersReport(VehiclesDAOBase.getConn());
+        } catch (JRException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public void printVehicles(ActionEvent actionEvent) {
+        try {
+            new PrintReport().showVehiclesReport(VehiclesDAOBase.getConn());
+        } catch (JRException e1) {
+            e1.printStackTrace();
         }
     }
 
