@@ -1,0 +1,90 @@
+#tbAddOwner, #tbAddVehicle, #tbAddPart, #tbAddService {
+    -fx-graphic: url("/img/plus.png");
+}
+
+#tbRemoveOwner, #tbRemoveVehicle, #tbRemovePart, #tbRemoveService {
+    -fx-graphic: url("/img/minus.png");
+}
+
+#tbEditOwner, #tbEditVehicle, #tbEditPart, #tbEditService {
+    -fx-graphic: url("/img/edit.png");
+}
+
+#tableOwners{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.61);
+    -fx-table-header-border-color: transparent;
+}
+
+#tableVehicles{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.61);
+    -fx-table-header-border-color: transparent;
+}
+
+#tableParts{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.61);
+    -fx-table-header-border-color: transparent;
+}
+
+#tableServices{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.61);
+    -fx-table-header-border-color: transparent;
+}
+
+#ownersTab{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+#vehiclesTab{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+#partsTab{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+#servicesTab{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+#tabPane{
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.menu-bar .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: rgb(3, 2, 3);
+    -fx-opacity: 0.9;
+}

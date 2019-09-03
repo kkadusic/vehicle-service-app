@@ -9,3 +9,10 @@
 #tbEditOwner, #tbEditVehicle, #tbEditPart, #tbEditService {
     -fx-graphic: url("/img/edit.png");
 }
+
+.menu-bar .label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: rgb(3, 2, 3);
+    -fx-opacity: 0.9;
+}

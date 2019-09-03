@@ -61,8 +61,6 @@ public class Controller {
     public ChoiceBox<String> jezikBox;
     private VehiclesDAO dao = null;
 
-
-
     private void reloadScene() {
         bundle = ResourceBundle.getBundle("Translation");
         Scene scene = tableOwners.getScene();
@@ -146,6 +144,34 @@ public class Controller {
         reloadScene();
     }
 
+
+    public void setDarkMode() {
+        bundle = ResourceBundle.getBundle("Translation");
+        Scene scene = tableOwners.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add("/css/dark_mode.css");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"), bundle);
+        loader.setController(this);
+        try {
+            scene.setRoot(loader.load());
+        } catch (IOException ignored) {
+
+        }
+    }
+
+    public void setLightMode() {
+        bundle = ResourceBundle.getBundle("Translation");
+        Scene scene = tableOwners.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add("/css/style.css");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/screen.fxml"), bundle);
+        loader.setController(this);
+        try {
+            scene.setRoot(loader.load());
+        } catch (IOException ignored) {
+
+        }
+    }
 
 
     public void initializeDatabase() {
