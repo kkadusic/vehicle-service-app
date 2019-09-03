@@ -11,8 +11,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -56,24 +57,31 @@
                         <MenuItem mnemonicParsing="false" onAction="#changeToFrench" text="FR" />
                     </items>
                 </Menu>
-            <Menu mnemonicParsing="false" text="%darkMode">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#setDarkMode" text="ON" />
-                   <MenuItem mnemonicParsing="false" onAction="#setLightMode" text="OFF" />
-               </items>
-            </Menu>
+                <Menu mnemonicParsing="false" text="%darkMode">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setDarkMode" text="ON" />
+                        <MenuItem mnemonicParsing="false" onAction="#setLightMode" text="OFF" />
+                    </items>
+                </Menu>
             </menus>
         </MenuBar>
         <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
             <tabs>
+                <Tab text="MAIN SCREEN">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="currentDateLabel" layoutX="604.0" layoutY="14.0" prefHeight="23.0" prefWidth="131.0" text="date" />
+                        <ImageView fx:id="compImage" fitHeight="288.0" fitWidth="535.0" layoutX="111.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
                 <Tab fx:id="ownersTab" text="%owners">
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
                                 <ToolBar prefHeight="40.0" prefWidth="200.0">
                                     <items>
-                                        <Label text="Search" />
-                                        <TextField />
                                         <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" />
                                         <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" />
                                         <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" />
@@ -96,8 +104,6 @@
                             <children>
                                 <ToolBar prefHeight="40.0" prefWidth="200.0">
                                     <items>
-                                        <Label text="Search" />
-                                        <TextField />
                                         <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" />
                                         <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" />
                                         <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" />
@@ -126,8 +132,6 @@
                             <children>
                                 <ToolBar prefHeight="40.0" prefWidth="200.0">
                                     <items>
-                                        <Label text="Search" />
-                                        <TextField />
                                         <Button fx:id="tbAddPart" mnemonicParsing="false" onAction="#addPartAction" />
                                         <Button fx:id="tbRemovePart" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removePartAction" />
                                         <Button fx:id="tbEditPart" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editPartAction" />
@@ -152,8 +156,6 @@
                             <children>
                                 <ToolBar prefHeight="40.0" prefWidth="200.0">
                                     <items>
-                                        <Label text="Search" />
-                                        <TextField />
                                         <Button fx:id="tbAddService" mnemonicParsing="false" onAction="#addServiceAction" />
                                         <Button fx:id="tbRemoveService" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeServiceAction" />
                                         <Button fx:id="tbEditService" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editServiceAction" />

@@ -16,12 +16,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -60,6 +63,8 @@ public class Controller {
     private ResourceBundle bundle;
     public ChoiceBox<String> jezikBox;
     private VehiclesDAO dao = null;
+    public Label currentDateLabel;
+    public ImageView compImage;
 
     private void reloadScene() {
         bundle = ResourceBundle.getBundle("Translation");
@@ -77,6 +82,12 @@ public class Controller {
     @FXML
     public void initialize() {
         initializeDatabase();
+
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE, dd-MMM-yyyy");
+        currentDateLabel.setText(formatter.format(date));
+        compImage.setImage(new Image("/img/comp-logo.png"));
+
 
         // Detecting double click for owner editing
         tableOwners.setRowFactory(tv -> {
