@@ -2,12 +2,15 @@ package ba.unsa.etf.rpr.projekat.controller;
 
 import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
 import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOBase;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -56,6 +59,15 @@ public class LoginController {
                 myStage.setResizable(false);
                 myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
                 myStage.show();
+
+                myStage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+                    if (KeyCode.ESCAPE == event.getCode()) {
+                        myStage.close();
+                        Platform.exit();
+                        System.exit(0);
+                    }
+                });
+
                 conn.close();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

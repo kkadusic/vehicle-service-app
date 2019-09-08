@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.projekat.controller;
 
+import ba.unsa.etf.rpr.projekat.Main;
 import ba.unsa.etf.rpr.projekat.dao.VehiclesDAO;
 import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOBase;
 import ba.unsa.etf.rpr.projekat.dao.VehiclesDAOXML;
@@ -11,6 +12,7 @@ import ba.unsa.etf.rpr.projekat.report.PrintReport;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,9 +21,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -185,6 +191,53 @@ public class Controller {
 
         }
     }
+
+
+    public void saveOwnersAction(ActionEvent actionEvent) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter1 = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        FileChooser.ExtensionFilter extFilter2 = new FileChooser.ExtensionFilter("DOCX files (*.docx)", "*.docx");
+        FileChooser.ExtensionFilter extFilter3 = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+
+        fileChooser.getExtensionFilters().add(extFilter1);
+        fileChooser.getExtensionFilters().add(extFilter2);
+        fileChooser.getExtensionFilters().add(extFilter3);
+
+        File file = fileChooser.showSaveDialog(Main.getStage());
+        if (file != null) {
+            PrintReport printReport = new PrintReport();
+            try {
+                printReport.saveOwnersAs(FilenameUtils.getExtension(file.getCanonicalPath()).toUpperCase(), VehiclesDAOBase.getConn(), file.getCanonicalPath());
+            } catch (JRException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    public void saveVehiclesAction(ActionEvent actionEvent) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter1 = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        FileChooser.ExtensionFilter extFilter2 = new FileChooser.ExtensionFilter("DOCX files (*.docx)", "*.docx");
+        FileChooser.ExtensionFilter extFilter3 = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+
+        fileChooser.getExtensionFilters().add(extFilter1);
+        fileChooser.getExtensionFilters().add(extFilter2);
+        fileChooser.getExtensionFilters().add(extFilter3);
+
+        File file = fileChooser.showSaveDialog(Main.getStage());
+        if (file != null) {
+            PrintReport printReport = new PrintReport();
+            try {
+                printReport.saveVehiclesAs(FilenameUtils.getExtension(file.getCanonicalPath()).toUpperCase(), VehiclesDAOBase.getConn(), file.getCanonicalPath());
+            } catch (JRException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+
 
 
     public void printOwners(ActionEvent actionEvent) {
@@ -507,6 +560,7 @@ public class Controller {
 
     public void exitClick(ActionEvent actionEvent) {
         Platform.exit();
+        System.exit(0);
     }
 
 }

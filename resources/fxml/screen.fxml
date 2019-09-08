@@ -35,6 +35,16 @@
             <menus>
                 <Menu mnemonicParsing="false" text="%file">
                     <items>
+                  <Menu mnemonicParsing="false" text="Owners report">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Save As" onAction="#saveOwnersAction" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Vehicles report">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Save As" onAction="#saveVehiclesAction"/>
+                    </items>
+                  </Menu>
                         <MenuItem mnemonicParsing="false" onAction="#exitClick" text="%exit" />
                     </items>
                 </Menu>
@@ -65,9 +75,9 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
+        <TabPane fx:id="mainScreenTab" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
             <tabs>
-                <Tab text="MAIN SCREEN">
+                <Tab text="%mainScreen">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -85,7 +95,7 @@
                                         <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#addOwnerAction" />
                                         <Button fx:id="tbRemoveOwner" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeOwnerAction" />
                                         <Button fx:id="tbEditOwner" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editOwnerAction" />
-                              <Button mnemonicParsing="false" text="Report" onAction="#printOwners" />
+                              <Button mnemonicParsing="false" onAction="#printOwners" text="Report" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableOwners" prefHeight="374.0" prefWidth="698.0">
@@ -108,7 +118,7 @@
                                         <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#addVehicleAction" />
                                         <Button fx:id="tbRemoveVehicle" layoutX="195.0" layoutY="13.0" mnemonicParsing="false" onAction="#removeVehicleAction" />
                                         <Button fx:id="tbEditVehicle" layoutX="251.0" layoutY="13.0" mnemonicParsing="false" onAction="#editVehicleAction" />
-                              <Button mnemonicParsing="false" text="Report" onAction="#printVehicles" />
+                              <Button mnemonicParsing="false" onAction="#printVehicles" text="Report" />
                                     </items>
                                 </ToolBar>
                                 <TableView fx:id="tableVehicles" prefHeight="374.0" prefWidth="698.0">
