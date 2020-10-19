@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d258837-c7c9-4664-90fc-e36b1f62166e" name="Default Changelist" comment="Add Maven support">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ibm_icu_icu4j_57_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lowagie_itext_2_1_7_js6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jasperreports_jasperreports_6_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_52.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_core_1_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_xml_1_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_core_compiler_ecj_4_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_25_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3e06d7c7-91d6-485d-9e32-3209552031cd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4a1352ad-a1e2-43a0-9753-3a40c0a763d1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3e06d7c7-91d6-485d-9e32-3209552031cd/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Translation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translation.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Translation_bs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translation_bs.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Translation_de.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translation_de.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Translation_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translation_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Translation_fr.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Translation_fr.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/dark_mode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dark_mode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/db/vehicle.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/vehicle.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/owner.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/owner.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/part.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/part.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/service.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/service.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/user.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/user.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/vehicle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/vehicle.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/comp-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/comp-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/edit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/edit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/login-background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/login-background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/login.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/login.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/minus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/minus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/img/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/plus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/reports/owners.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reports/owners.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/reports/vehicles.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reports/vehicles.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpr-projekat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr-projekat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/OwnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/PartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/PartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/controller/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/controller/VehicleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dao/VehiclesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dao/VehiclesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dao/VehiclesDAOBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dao/VehiclesDAOBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dao/VehiclesDAOXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dao/VehiclesDAOXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Part.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Part.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/dto/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/dto/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/projekat/report/PrintReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/projekat/report/PrintReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/projekat/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ba/unsa/etf/rpr/projekat/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vehicle.db" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1gKin1GAqzRx2rIMnBus5ZcnFuq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ba.unsa.etf.rpr.projekat" />
+      <recent name="projekat" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.projekat.Main" />
+      <module name="rpr-projekat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.projekat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d258837-c7c9-4664-90fc-e36b1f62166e" name="Default Changelist" comment="" />
+      <created>1597869847996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597869847996</updated>
+      <workItem from="1597869849340" duration="3028000" />
+      <workItem from="1598193409076" duration="3930000" />
+      <workItem from="1599323651181" duration="583000" />
+      <workItem from="1603129268033" duration="1207000" />
+      <workItem from="1603132530389" duration="418000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Maven support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Maven support" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="260" y="96" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1603132796975">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state x="260" y="96" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1280.748@0.0.1280.748" timestamp="1603132796975" />
+    <state x="260" y="96" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1280.751@0.0.1280.751" timestamp="1597869940368" />
+    <state x="272" y="331" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1598194227594">
+      <screen x="0" y="0" width="1280" height="751" />
+    </state>
+    <state x="272" y="331" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.751@0.0.1280.751" timestamp="1598194227594" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598197734774">
+      <screen x="0" y="0" width="1280" height="751" />
+    </state>
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.751@0.0.1280.751" timestamp="1598197734774" />
+    <state x="244" y="22" width="802" height="726" key="CommitChangelistDialog2" timestamp="1603132941749">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state x="244" y="22" width="802" height="726" key="CommitChangelistDialog2/0.0.1280.748@0.0.1280.748" timestamp="1603132941749" />
+    <state x="283" y="41" width="747" height="709" key="CommitChangelistDialog2/0.0.1280.751@0.0.1280.751" timestamp="1599323705421" />
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom" timestamp="1603132716618">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom/0.0.1280.748@0.0.1280.748" timestamp="1603132716618" />
+    <state width="1238" height="229" key="GridCell.Tab.0.bottom/0.0.1280.751@0.0.1280.751" timestamp="1599325959249" />
+    <state width="1238" height="229" key="GridCell.Tab.0.center" timestamp="1603132716616">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state width="1238" height="229" key="GridCell.Tab.0.center/0.0.1280.748@0.0.1280.748" timestamp="1603132716616" />
+    <state width="1238" height="229" key="GridCell.Tab.0.center/0.0.1280.751@0.0.1280.751" timestamp="1599325959247" />
+    <state width="1238" height="229" key="GridCell.Tab.0.left" timestamp="1603132716615">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state width="1238" height="229" key="GridCell.Tab.0.left/0.0.1280.748@0.0.1280.748" timestamp="1603132716615" />
+    <state width="1238" height="229" key="GridCell.Tab.0.left/0.0.1280.751@0.0.1280.751" timestamp="1599325959247" />
+    <state width="1238" height="229" key="GridCell.Tab.0.right" timestamp="1603132716617">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state width="1238" height="229" key="GridCell.Tab.0.right/0.0.1280.748@0.0.1280.748" timestamp="1603132716617" />
+    <state width="1238" height="229" key="GridCell.Tab.0.right/0.0.1280.751@0.0.1280.751" timestamp="1599325959248" />
+    <state width="233" height="457" key="HiddenNamespacesPopup" timestamp="1597870563228">
+      <screen x="0" y="0" width="1280" height="751" />
+    </state>
+    <state width="233" height="457" key="HiddenNamespacesPopup/0.0.1280.751@0.0.1280.751" timestamp="1597870563228" />
+    <state x="128" y="0" key="SettingsEditor" timestamp="1597869855204">
+      <screen x="0" y="0" width="1280" height="751" />
+    </state>
+    <state x="128" y="0" key="SettingsEditor/0.0.1280.751@0.0.1280.751" timestamp="1597869855204" />
+    <state x="305" y="72" width="670" height="676" key="search.everywhere.popup" timestamp="1603132730431">
+      <screen x="0" y="0" width="1280" height="748" />
+    </state>
+    <state x="305" y="72" width="670" height="676" key="search.everywhere.popup/0.0.1280.748@0.0.1280.748" timestamp="1603132730431" />
+  </component>
+</project>
