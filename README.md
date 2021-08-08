@@ -1,6 +1,7 @@
-# Vehicle Technical Service
+# Vehicle Service App
 
-Cross-platform JavaFX desktop application for vehicle technical service.
+This repository contains a cross-platform JavaFX desktop application for technical vehicle service. Other used tools are SQLite database, 
+JasperReports, Java ResourceBundle (for internationalization), and Maven.
 
 ![rpr-projekat-app-screenshots](https://user-images.githubusercontent.com/44180058/128631541-dc526a45-0487-4ac8-a485-b8e9eeaab925.jpeg)
 
