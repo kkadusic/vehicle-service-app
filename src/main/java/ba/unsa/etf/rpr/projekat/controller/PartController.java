@@ -35,7 +35,7 @@ public class PartController {
         }
     }
 
-    public void okClick (ActionEvent actionEvent){
+    public void okClick(ActionEvent actionEvent) {
         int quantity = Integer.parseInt(partQuantityField.getText());
         if (part == null) {
             part = new Part(0, partBrandField.getText(), partModelField.getText(), partNameField.getText(), quantity);

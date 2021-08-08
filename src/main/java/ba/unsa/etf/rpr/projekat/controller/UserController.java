@@ -38,18 +38,16 @@ public class UserController {
                     "numbers (0-9), period or underscore characters\n" +
                     "- For example: John5");
             alert.showAndWait();
-        }
-        else if (!passwordValidation(passwordFieldForm, passwordRepeatFieldForm)) {
+        } else if (!passwordValidation(passwordFieldForm, passwordRepeatFieldForm)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid password");
             alert.setHeaderText("Please enter new password");
-            alert.setContentText("• Password should be less than 15 and more than 8 characters in length\n" +
+            alert.setContentText("• Password should contain more than 8 characters\n" +
                     "• Password should contain at least one upper case and one lower case alphabet\n" +
-                    "• Password should contain at least one special character\n" +
-                    "- For example: John75London#");
+                    "• Password should contain at least one number\n" +
+                    "- For example: Berlin123");
             alert.showAndWait();
-        }
-        else {
+        } else {
             user = new User(0, usernameFieldForm.getText(), passwordFieldForm.getText());
             dao.addUser(user);
             dao.close(); //So the database won't be locked (because of two connections)
@@ -74,7 +72,7 @@ public class UserController {
             if (password.charAt(i) != passwordRepeat.charAt(i)) return false;
         }
 
-        String passwordPattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+        String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
         return password.matches(passwordPattern);
     }
 

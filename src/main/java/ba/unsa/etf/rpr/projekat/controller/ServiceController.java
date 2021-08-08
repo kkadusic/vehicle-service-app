@@ -35,7 +35,7 @@ public class ServiceController {
         }
     }
 
-    public void okClick (ActionEvent actionEvent){
+    public void okClick(ActionEvent actionEvent) {
         int inspections = Integer.parseInt(serviceInspectionsNumberField.getText());
         if (service == null) {
             service = new Service(0, serviceVehicleIdNumberField.getText(), serviceMechanicNameField.getText(), inspections, serviceDetailsField.getText());

@@ -142,22 +142,22 @@ public class Controller {
     }
 
 
-    public void changeToBosnian(ActionEvent actionEvent){
+    public void changeToBosnian(ActionEvent actionEvent) {
         Locale.setDefault(new Locale("bs", "BA"));
         reloadScene();
     }
 
-    public void changeToEnglish(ActionEvent actionEvent){
+    public void changeToEnglish(ActionEvent actionEvent) {
         Locale.setDefault(new Locale("en", "US"));
         reloadScene();
     }
 
-    public void changeToGerman(ActionEvent actionEvent){
+    public void changeToGerman(ActionEvent actionEvent) {
         Locale.setDefault(new Locale("de", "DE"));
         reloadScene();
     }
 
-    public void changeToFrench(ActionEvent actionEvent){
+    public void changeToFrench(ActionEvent actionEvent) {
         Locale.setDefault(new Locale("fr", "FR"));
         reloadScene();
     }
@@ -235,8 +235,6 @@ public class Controller {
             }
         }
     }
-
-
 
 
     public void printOwners(ActionEvent actionEvent) {
