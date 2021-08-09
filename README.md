@@ -24,6 +24,6 @@ $ mvn compile
 # Execute the project
 $ mvn exec:java -Dexec.mainClass=ba.unsa.etf.rpr.projekat.Main
 
-# If you want to create fat JAR with dependencies
+# If you want to create fat JAR with dependencies (not necessary)
 $ mvn clean compile assembly:single
 ```
