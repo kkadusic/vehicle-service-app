@@ -9,3 +9,20 @@ JasperReports, Java ResourceBundle (for internationalization), and Maven.
 
 To clone and run this application, you will need [Git](https://git-scm.com) and 
 [JDK 10](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html).
+
+```bash
+# Clone this repository
+$ git clone https://github.com/kkadusic/rpr-projekat
+
+# Go into the root directory
+$ cd rpr-projekat
+
+# Compile the project and generate target folder
+$ mvn compile
+
+# Execute the project
+$ mvn exec:java -Dexec.mainClass=ba.unsa.etf.rpr.projekat.Main
+
+# If you want to create fat JAR with dependencies
+$ mvn clean compile assembly:single
+```
