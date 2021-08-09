@@ -7,15 +7,16 @@ JasperReports, Java ResourceBundle (for internationalization), and Maven.
 
 ## How To Use :wrench:
 
-To clone and run this application, you will need [Git](https://git-scm.com) and 
-[JDK 10](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html).
+To clone and run this application, you will need [Git](https://git-scm.com), 
+[JDK 10](https://www.oracle.com/java/technologies/java-archive-javase10-downloads.html) and 
+[Maven](https://maven.apache.org/download.cgi).
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/kkadusic/rpr-projekat
+$ git clone https://github.com/kkadusic/vehicle-service-app
 
 # Go into the root directory
-$ cd rpr-projekat
+$ cd vehicle-service-app
 
 # Compile the project and generate target folder
 $ mvn compile
